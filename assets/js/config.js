@@ -1,8 +1,8 @@
 /* ============ ตั้งค่าเว็บ ============
    1) ใส่ค่าจาก Supabase > Project Settings > API
    2) ถ้ายังไม่ใส่ เว็บจะแสดงข้อมูลตัวอย่าง (FALLBACK) ด้านล่างแทน */
-const SUPABASE_URL = "";       // https://xxxx.supabase.co
-const SUPABASE_ANON_KEY = "";  // anon public key (ปลอดภัยที่จะเปิดเผย)
+const SUPABASE_URL = "https://fmxbjxypdtqcnxxwwucy.supabase.co";       // https://xxxx.supabase.co
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZteGJqeHlwZHRxY254eHd3dWN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwMDQ2NTksImV4cCI6MjEwODU4MDY1OX0.s9spCFEbZr8ArnJkdf-X5IIEKovsvduhOwzvV0rz6PU";  // anon public key (ปลอดภัยที่จะเปิดเผย)
 
 const LINKS = {
 
