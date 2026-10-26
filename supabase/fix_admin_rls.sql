@@ -6,7 +6,7 @@ begin;
 
 -- 1) Set the exact email used by your Supabase Auth account.
 insert into public.admins (email)
-values (lower(trim('YOUR_ADMIN_EMAIL@example.com')))
+values (lower(trim('monnixcode@gmail.com')))
 on conflict (email) do nothing;
 
 -- 2) Secure admin check. SECURITY DEFINER lets the function read admins without
