@@ -56,5 +56,5 @@ revoke all on function log_play(uuid, text) from public;
 grant execute on function log_play(uuid, text) to anon, authenticated;
 
 -- ★ ใส่อีเมลของคุณเป็นแอดมิน (แก้ก่อนรัน) แล้วสร้าง user ที่ Authentication > Users
-insert into admins values ('your@email.com');
+insert into admins values ('monnixcode@gmail.com');
   
