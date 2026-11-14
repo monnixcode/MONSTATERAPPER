@@ -32,9 +32,9 @@ const avatar=(a,fallback)=>a&&a.avatar_url?`<img src="${esc(a.avatar_url)}" alt=
 
 /* ---------- header buttons ---------- */
 function drawAuth(){
- const els=$$('#auth,#auth-m');if(!els.length)return;const set=h=>els.forEach(e=>{e.innerHTML=h});
+ const els=$$('#auth');if(!els.length)return;const set=h=>els.forEach(e=>{e.innerHTML=h});
  if(!sb){set('');return}
- if(!ME.user){set('<button type="button" class="btn ghost sm" data-auth="in">Sign in</button><button type="button" class="btn solid sm" data-auth="up">Create account</button>');return}
+ if(!ME.user){set('<button type="button" class="btn ghost sm" data-auth="in">Sign in</button><button type="button" class="btn solid sm" data-auth="up"><span class="l-long">Create account</span><span class="l-short">Sign up</span></button>');return}
  const nm=ME.artist?ME.artist.name:(ME.admin?'Admin':(ME.user.user_metadata?.account_type==='listener'?'Listener':(ME.user.email||'').split('@')[0]));
  set(`<a class="me" href="account.html" title="Dashboard">${avatar(ME.artist,nm)}<span>${esc(nm)}${badge(ME.artist)}</span></a><button type="button" class="btn ghost sm" data-auth="out">Sign out</button>`);
 }
@@ -223,7 +223,7 @@ const flashNote=()=>flash?`<p class="note ok msg">${esc(flash)}</p>`:'';
 /* --- profile tab --- */
 function tProfile(box,root){const a=ME.artist;
  const pu=profileUrl(a);
- box.innerHTML=`<div class="panel share-panel" style="max-width:720px;margin:0 0 20px"><h3>Share your profile</h3><p class="hint" style="margin:0 0 10px">Anyone can open this link. On Facebook, LINE, X and others it shows your cover picture (or your profile picture) with your name.</p><div class="urlbox"><input readonly value="${esc(pu)}" aria-label="Profile link" onfocus="this.select()"><button type="button" class="btn solid sm" data-share="copy" data-url="${esc(pu)}">Copy</button></div>${shareBar(pu,a.name+' on Mon HipHop')}</div>
+ box.innerHTML=`<div class="panel share-panel" style="max-width:720px;margin:0 0 20px"><h3>Share your profile</h3><p class="hint" style="margin:0 0 10px">Anyone can open this link. On Facebook, LINE, X and others it shows your cover picture (or your profile picture) with your name.</p><div class="urlbox"><input readonly value="${esc(pu)}" aria-label="Profile link" onfocus="this.select()"><button type="button" class="cpy" data-share="native" data-url="${esc(pu)}" data-title="${esc(a.name)} on Mon HipHop" aria-label="Share profile" title="Share"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg></button></div></div>
  <div class="panel" style="max-width:720px"><h3>Edit profile</h3>${flashNote()}<form id="pf">
   <div class="fld"><label>Artist name</label><input name="name" maxlength="60" value="${esc(a.name)}" required></div>
   <div class="fld"><label>Role / tagline</label><input name="role" maxlength="40" value="${esc(a.role)}" placeholder="Rapper · Mon State"></div>

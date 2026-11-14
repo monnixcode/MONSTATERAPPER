@@ -55,7 +55,7 @@ let toastT;function toast(t){let el=$('#toast');if(!el){el=document.createElemen
 async function copyText(t){try{await navigator.clipboard.writeText(t);return true}catch(e){const x=document.createElement('textarea');x.value=t;x.style.cssText='position:fixed;opacity:0';document.body.append(x);x.select();let ok=false;try{ok=document.execCommand('copy')}catch(e2){}x.remove();return ok}}
 document.addEventListener('click',async e=>{const b=e.target.closest('[data-share]');if(!b)return;
  const box=b.closest('[data-url]');if(!box)return;const url=box.dataset.url,title=box.dataset.title||document.title;
- if(b.dataset.share==='native'){try{await navigator.share({title,url})}catch(err){}return}
+ if(b.dataset.share==='native'){if(navigator.share){try{await navigator.share({title,url})}catch(err){}}else toast(await copyText(url)?'Link copied':'Copy failed — select the link and copy it');return}
  if(b.dataset.share==='go'){const c=copyText(url);window.open(b.dataset.go,'_blank','noopener');const n=b.dataset.name||'';toast(await c?`Link copied — paste it in ${n}`:'Copy the link and paste it in '+n);return}
  toast(await copyText(url)?'Link copied':'Copy failed — select the link and copy it')});
 const R={
