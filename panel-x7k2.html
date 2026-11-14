@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><base href="/"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Admin — Mon HipHop</title><link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css"><link rel="stylesheet" href="assets/css/account.css"><link rel="stylesheet" href="assets/css/admin.css"></head>
+<body class="admin">
+<div id="app"></div>
+<div class="adm-shell" id="shell" hidden>
+ <aside class="adm-side">
+  <a href="index.html" class="adm-brand"><img src="logo.png" alt=""><span>Mon HipHop<small>Admin</small></span></a>
+  <nav class="adm-nav" id="nav" aria-label="Admin sections"></nav>
+  <div class="adm-foot"><span class="who" id="who"></span><a href="index.html" class="side-link">View site</a><button id="logout" class="btn ghost sm" type="button" hidden>Sign out</button></div>
+ </aside>
+ <main class="adm-main" id="main"></main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="assets/js/config.js"></script><script src="assets/js/app.js"></script><script src="assets/js/admin.js"></script></body></html>
